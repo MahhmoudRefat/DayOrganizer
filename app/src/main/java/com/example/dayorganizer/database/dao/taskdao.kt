@@ -1,11 +1,12 @@
 package com.example.dayorganizer.database.dao
 
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.example.dayorganizer.database.model.Task
-
+@Dao
 interface taskdao {
     @Insert
     fun insertTask(task:Task)
@@ -13,7 +14,9 @@ interface taskdao {
     fun updateTask(task: Task)
     @Delete
     fun deleteTask(task: Task)
+    //the second datetime is the one in function parameter
+    @Query("select * from task where dateTime = :dateTime")
+    fun getAllTasksByDate(dateTime:Long):(List<Task>)
     @Query("select * from task")
     fun getAllTasks():(List<Task>)
-
 }
