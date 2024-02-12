@@ -1,7 +1,8 @@
-package com.example.dayorganizer
+package com.example.dayorganizer.Ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.dayorganizer.R
 import com.example.dayorganizer.database.myDataBase
 
 class MainActivity : AppCompatActivity() {
