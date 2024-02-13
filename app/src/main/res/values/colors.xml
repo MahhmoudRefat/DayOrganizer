@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#C3AB30</color>
     <color name="bg_color">#DFECDB</color>
+    <color name="bottom_nav_color">#FFFFFFFF</color>
     <color name="lime">#DFECDB</color>
     <color name="dark_green">#275718</color>
     <color name="blue">#5D9CEC</color>
