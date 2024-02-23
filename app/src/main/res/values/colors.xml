@@ -15,4 +15,7 @@
     <color name="grey">#C8C9CB</color>
     <color name="color_bg">@color/white</color>
     <color name="red">#ff5722</color>
+
+    <color name="primary_color">#5D9CEC</color>
+    <color name="text_color">@color/white</color>
 </resources>
