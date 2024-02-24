@@ -1,4 +1,4 @@
-package com.example.dayorganizer.Ui
+package com.example.dayorganizer.Ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
