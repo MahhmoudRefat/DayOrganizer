@@ -1,23 +1,22 @@
 package com.example.dayorganizer.Ui.home.tasksLis
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.dayorganizer.databinding.FragmentTasksBinding
+import com.example.dayorganizer.databinding.FragmentListTasksBinding
 
 
-class TasksFragment : Fragment() {
-    lateinit var binding: FragmentTasksBinding
+class TasksListFragment : Fragment() {
+    lateinit var binding: FragmentListTasksBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentTasksBinding.inflate(inflater, container, false)
+        binding = FragmentListTasksBinding.inflate(inflater, container, false)
         return binding.root
     }
 
