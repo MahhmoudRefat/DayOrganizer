@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.dayorganizer.database.dao.taskdao
 import com.example.dayorganizer.database.model.Task
 
-@Database(entities = [Task::class], version = 1)
+@Database(entities = [Task::class], version = 2)
 abstract class myDataBase : RoomDatabase() {
     abstract fun getTasksDao(): taskdao
 

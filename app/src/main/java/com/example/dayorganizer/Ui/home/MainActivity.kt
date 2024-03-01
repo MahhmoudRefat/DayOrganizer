@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.dayorganizer.R
+import com.example.dayorganizer.Ui.home.addTask.AddTaskBottomSheet
 import com.example.dayorganizer.Ui.home.settings.SettingsFragment
 import com.example.dayorganizer.Ui.home.tasksLis.TasksListFragment
 import com.example.dayorganizer.database.myDataBase
@@ -30,6 +31,23 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener  true
         }
         binding.bottomNavigation.selectedItemId = R.id.nav_tasks
+        binding.fabAddTask.setOnClickListener{
+            showAddTaskBottomSheet()
+        }
+    }
+
+    private fun showAddTaskBottomSheet() {
+        val addTasksheet = AddTaskBottomSheet()
+        addTasksheet.onTaskAddedListener=AddTaskBottomSheet.OnTaskAddedListener{
+            //notify tasksListFragment
+            supportFragmentManager.fragments.forEach{
+                fragment -> if (fragment is TasksListFragment && fragment.isAdded){
+                    fragment.retreiveTasksList()
+                }
+            }
+        }
+   addTasksheet.show(supportFragmentManager,null)
+
     }
 
     private fun ShowFragment(fragment: Fragment) {

@@ -14,5 +14,7 @@ data class Task(
     @ColumnInfo var title: String? = null,
     @ColumnInfo var content: String? = null,
     @ColumnInfo var isDone: Boolean = false,
-    @ColumnInfo var dateTime: Long? = null,
-) : Parcelable
+    @ColumnInfo var date: Long? = null,
+    @ColumnInfo var time: Long? = null,
+
+    ) : Parcelable

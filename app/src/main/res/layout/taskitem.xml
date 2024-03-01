@@ -1,59 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp"
-    app:circularflow_radiusInDP="20dp"
-    app:layout_constraintCircleRadius="20dp">
+    android:layout_margin="8dp"
+    android:elevation="10dp"
+    app:cardCornerRadius="20dp">
 
-    <ImageView
-        android:id="@+id/iv_bluerec"
-        android:layout_width="15dp"
-        android:layout_height="60dp"
-        android:src="@drawable/bluerec"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_task_name"
-        android:layout_width="wrap_content"
+    <com.zerobranch.layout.SwipeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="7dp"
-        android:text="play basket ball "
-        android:textColor="@color/blue"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/iv_bluerec"
-        app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
-        android:id="@+id/iv_clock"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:src="@drawable/clock"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="7dp"
-        app:layout_constraintStart_toEndOf="@id/iv_bluerec"
-        app:layout_constraintTop_toBottomOf="@+id/tv_task_name"  />
+        android:background="@color/red"
+        app:draggedItem="@id/drag_item"
+        app:leftItem="@id/btn_delete_task"
+        app:swipeDirection="right">
 
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="7dp"
-        android:text="10:30 AM "
-        app:layout_constraintStart_toEndOf="@id/iv_clock"
-        app:layout_constraintTop_toBottomOf="@+id/tv_task_name" />
+        <ImageButton
+            android:id="@+id/btn_delete_task"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center"
+            android:background="@drawable/rounded_red"
+            android:src="@drawable/ic_delete" />
 
-    <ImageView
-        android:id="@+id/iv_check_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/checkicon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/drag_item"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/rounded_bottom_nav"
+            android:paddingTop="5dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dragging_bar"
+                android:layout_width="7dp"
+                android:layout_height="0dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/dragging_bar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_task_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:lines="1"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toRightOf="@id/dragging_bar"
+                app:layout_constraintTop_toTopOf="@id/dragging_bar" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="7dp"
+                android:text="description "
+                app:layout_constraintStart_toEndOf="@id/dragging_bar"
+                app:layout_constraintTop_toBottomOf="@+id/tv_task_name" />
+
+            <ImageButton
+                android:id="@+id/iv_check_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/checkicon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.zerobranch.layout.SwipeLayout>
+</androidx.cardview.widget.CardView>
