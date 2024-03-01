@@ -1,11 +1,13 @@
 package com.example.dayorganizer.Ui.home.tasksLis
 
 import CalendarExtensions.getDateOnly
+import CalendarExtensions.showDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.dayorganizer.database.model.Task
 import com.example.dayorganizer.database.myDataBase
 import com.example.dayorganizer.databinding.FragmentListTasksBinding
 import com.prolificinteractive.materialcalendarview.CalendarDay
@@ -35,10 +37,11 @@ class TasksListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpViews()
         retreiveTasksList()
+        onDeleteTask()
 
     }
 
-     fun retreiveTasksList() {
+    fun retreiveTasksList() {
         val allTasks = myDataBase.getInstance(requireContext())
             .getTasksDao()
             .getAllTasksByDate(currentDate.getDateOnly())
@@ -49,12 +52,38 @@ class TasksListFragment : Fragment() {
     private fun setUpViews() {
         binding.rvTasks.adapter = adapter
         binding.calendarView.selectedDate = CalendarDay.today()
-        binding.calendarView.setOnDateChangedListener{widget,date,selected ->
-            if (selected){
-                currentDate.set(date.year,date.month - 1,date.day)
+        binding.calendarView.setOnDateChangedListener { widget, date, selected ->
+            if (selected) {
+                currentDate.set(date.year, date.month - 1, date.day)
                 retreiveTasksList()
             }
         }
+    }
+
+
+    private fun onDeleteTask() {
+        adapter.onDeleteClickListener = TaskAdapter
+            .OnItemClickListener { item, _ ->
+
+           /*     showDialog("Are you Sure to delete the task ") {
+                    onDelete(item)
+                }*/
+                showDialog("Are you Sure to delete the task  ",
+                    posActionName = "ٍDelete",
+                    isCancelable = true,
+                    posActionCallBack = {
+                        onDelete(item)
+                    }
+                )
+
+            }
+    }
+
+    private fun onDelete(item: Task) {
+        myDataBase.getInstance(requireContext())
+            .getTasksDao()
+            .deleteTask(item)
+        retreiveTasksList()
     }
 
 

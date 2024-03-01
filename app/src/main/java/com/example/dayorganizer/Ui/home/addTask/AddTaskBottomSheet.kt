@@ -2,6 +2,7 @@ package com.example.dayorganizer.Ui.home.addTask
 
 import CalendarExtensions.getDateOnly
 import CalendarExtensions.getTimeOnly
+import CalendarExtensions.showDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
@@ -80,11 +81,11 @@ class AddTaskBottomSheet : BottomSheetDialogFragment() {
 
     }
 
- /*   private fun onSelectTimeClick() {
-        binding.selectTimeTil.setOnClickListener {
-            val calendar = Calendar.getInstance()
-        }
-    }*/
+    /*   private fun onSelectTimeClick() {
+           binding.selectTimeTil.setOnClickListener {
+               val calendar = Calendar.getInstance()
+           }
+       }*/
 
     private fun addTask() {
         if (!isValidTask()) {
@@ -97,16 +98,24 @@ class AddTaskBottomSheet : BottomSheetDialogFragment() {
                     title = binding.title.text.toString(),
                     content = binding.description.text.toString(),
                     date = calender.getDateOnly(),
-                    time= calender.getTimeOnly()
+                    time = calender.getTimeOnly()
                 ),
             )
-        Toast.makeText(
+        showDialog("Task inserted Sucessfoly ",
+            posActionName = "OK",
+            isCancelable = true,
+            posActionCallBack = {
+                dismiss()
+                onTaskAddedListener?.onTaskAdded()
+            }
+        )
+     /*   Toast.makeText(
             requireContext(),
             "Task saved successfully",
             Toast.LENGTH_LONG,
         ).show()
         dismiss()
-        onTaskAddedListener?.onTaskAdded()
+        onTaskAddedListener?.onTaskAdded()*/
 
     }
 
@@ -152,13 +161,13 @@ class AddTaskBottomSheet : BottomSheetDialogFragment() {
         val dateFormated = SimpleDateFormat("dd:MM:yyyy");
         return dateFormated.format(time)
     }
-    var onTaskAddedListener:OnTaskAddedListener?=null
-    fun interface OnTaskAddedListener{
+
+    var onTaskAddedListener: OnTaskAddedListener? = null
+
+    fun interface OnTaskAddedListener {
         fun onTaskAdded()
     }
 }
-
-
 
 
 /* fun Calendar.getDayOnly(): Long {

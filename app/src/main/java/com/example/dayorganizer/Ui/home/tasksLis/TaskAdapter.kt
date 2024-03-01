@@ -16,6 +16,7 @@ class TaskAdapter(var tasks: MutableList<Task>? = null) :
         fun bind(task: Task) {
             binding.tvTaskName.text = task.title
             binding.tvDescription.text = task.content
+
         }
     }
 
@@ -30,13 +31,18 @@ class TaskAdapter(var tasks: MutableList<Task>? = null) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var task = tasks!![position]
-
         holder.bind(task)
 
+        if (onDeleteClickListener != null) {
+            holder.binding.btnDeleteTask.setOnClickListener {
+                onDeleteClickListener?.onItemClick(task, position)
+            }
+
+        }
     }
 
     fun changeData(alltasks: List<Task>) {
-        if (tasks == null){
+        if (tasks == null) {
             tasks = mutableListOf()
         }
         tasks?.clear()
@@ -45,5 +51,10 @@ class TaskAdapter(var tasks: MutableList<Task>? = null) :
 
     }
 
+    var onDeleteClickListener: OnItemClickListener? = null
+
+    fun interface OnItemClickListener {
+        fun onItemClick(item: Task, id: Int)
+    }
 
 }
