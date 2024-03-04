@@ -39,6 +39,11 @@ class TaskAdapter(var tasks: MutableList<Task>? = null) :
             }
 
         }
+        if(onItemClickListener != null ){
+            holder.itemView.setOnClickListener {
+                onItemClickListener?.onItemClick(task,position)
+            }
+        }
     }
 
     fun changeData(alltasks: List<Task>) {
@@ -52,6 +57,8 @@ class TaskAdapter(var tasks: MutableList<Task>? = null) :
     }
 
     var onDeleteClickListener: OnItemClickListener? = null
+    var onItemClickListener: OnItemClickListener? = null
+
 
     fun interface OnItemClickListener {
         fun onItemClick(item: Task, id: Int)

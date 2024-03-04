@@ -21,7 +21,10 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="english">English</string>
-
+    <string name="edit_text">Edit task</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="save_changes">Save Changes</string>
     <string-array name="languages">
         <item>English</item>
         <item>Arabic</item>

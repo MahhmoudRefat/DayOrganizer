@@ -2,11 +2,14 @@ package com.example.dayorganizer.Ui.home.tasksLis
 
 import CalendarExtensions.getDateOnly
 import CalendarExtensions.showDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.dayorganizer.Ui.home.editTask.EditTask
+import com.example.dayorganizer.Ui.model.Constants
 import com.example.dayorganizer.database.model.Task
 import com.example.dayorganizer.database.myDataBase
 import com.example.dayorganizer.databinding.FragmentListTasksBinding
@@ -77,6 +80,17 @@ class TasksListFragment : Fragment() {
                 )
 
             }
+    }
+    private fun onEditTask() {
+        adapter.onItemClickListener = TaskAdapter.OnItemClickListener { item, _ ->
+            openEditActivity(item)
+        }
+    }
+
+    private fun openEditActivity(task: Task) {
+        val intent = Intent(activity, EditTask::class.java)
+        intent.putExtra(Constants.TASK_KAY, task)
+        startActivity(intent)
     }
 
     private fun onDelete(item: Task) {

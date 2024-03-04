@@ -18,4 +18,5 @@
     <color name="bottom_nav_bg_color">@color/white</color>
     <color name="primary_color">#5D9CEC</color>
     <color name="text_color">@color/white</color>
+    <color name="time_text_color">#363636</color>
 </resources>
