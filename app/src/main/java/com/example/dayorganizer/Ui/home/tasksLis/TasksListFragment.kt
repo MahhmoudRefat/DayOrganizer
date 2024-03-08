@@ -41,6 +41,7 @@ class TasksListFragment : Fragment() {
         setUpViews()
         retreiveTasksList()
         onDeleteTask()
+        onEditTask()
 
     }
 
