@@ -1,8 +1,10 @@
 package com.example.dayorganizer.Ui.home.tasksLis
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dayorganizer.R
 import com.example.dayorganizer.database.model.Task
 import com.example.dayorganizer.databinding.TaskitemBinding
 
@@ -16,7 +18,16 @@ class TaskAdapter(var tasks: MutableList<Task>? = null) :
         fun bind(task: Task) {
             binding.tvTaskName.text = task.title
             binding.tvDescription.text = task.content
+            if (task.isDone) {
+                binding.tvTaskName.setTextColor(Color.parseColor("#61E757"))
+                binding.draggingBar.setImageResource(R.drawable.dragging_bar_done)
+                binding.ivCheckIcon.setImageResource(R.drawable.ic_done)
+            }else {
+                binding.tvTaskName.setTextColor(Color.parseColor("#5D9CEC"))
+                binding.draggingBar.setImageResource(R.drawable.dragging_bar)
+                binding.ivCheckIcon.setImageResource(R.drawable.checkicon)
 
+            }
         }
     }
 
@@ -40,8 +51,13 @@ class TaskAdapter(var tasks: MutableList<Task>? = null) :
 
         }
         if(onItemClickListener != null ){
-            holder.itemView.setOnClickListener {
+            holder.binding.dragItem.setOnClickListener {
                 onItemClickListener?.onItemClick(task,position)
+            }
+        }
+        if (onItemDoneClickListener != null) {
+            holder.binding.ivCheckIcon.setOnClickListener {
+                onItemDoneClickListener?.onItemClick(task, position)
             }
         }
     }
@@ -58,6 +74,7 @@ class TaskAdapter(var tasks: MutableList<Task>? = null) :
 
     var onDeleteClickListener: OnItemClickListener? = null
     var onItemClickListener: OnItemClickListener? = null
+    var onItemDoneClickListener: OnItemClickListener? = null
 
 
     fun interface OnItemClickListener {

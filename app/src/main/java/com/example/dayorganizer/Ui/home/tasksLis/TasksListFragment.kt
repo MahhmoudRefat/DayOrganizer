@@ -42,7 +42,21 @@ class TasksListFragment : Fragment() {
         retreiveTasksList()
         onDeleteTask()
         onEditTask()
+        onDone()
 
+    }
+
+    private fun onDone() {
+        adapter.onItemDoneClickListener = TaskAdapter.OnItemClickListener { item, position ->
+            if (item.isDone) {
+                item.isDone = false
+            } else {
+                item.isDone = true
+            }
+            //item.isDone = !item.isDone
+            myDataBase.getInstance(requireContext()).getTasksDao().updateTask(item)
+            adapter.notifyItemChanged(position)
+        }
     }
 
     fun retreiveTasksList() {
@@ -69,9 +83,9 @@ class TasksListFragment : Fragment() {
         adapter.onDeleteClickListener = TaskAdapter
             .OnItemClickListener { item, _ ->
 
-           /*     showDialog("Are you Sure to delete the task ") {
-                    onDelete(item)
-                }*/
+                /*     showDialog("Are you Sure to delete the task ") {
+                         onDelete(item)
+                     }*/
                 showDialog("Are you Sure to delete the task  ",
                     posActionName = "ٍDelete",
                     isCancelable = true,
@@ -82,6 +96,7 @@ class TasksListFragment : Fragment() {
 
             }
     }
+
     private fun onEditTask() {
         adapter.onItemClickListener = TaskAdapter.OnItemClickListener { item, _ ->
             openEditActivity(item)
@@ -89,7 +104,7 @@ class TasksListFragment : Fragment() {
     }
 
     private fun openEditActivity(task: Task) {
-        val intent = Intent(activity, EditTask::class.java)
+        val intent = Intent(requireContext(), EditTask::class.java)
         intent.putExtra(Constants.TASK_KAY, task)
         startActivity(intent)
     }
