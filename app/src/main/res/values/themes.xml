@@ -1,12 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.DayOrganizer" parent="Base.Theme.DayOrganizer" />
-    <style name="Base.Theme.DayOrganizer" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.DayOrganizer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryDark">#254875</item>
         <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/lime</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/blue</item>
        <item name="floatingActionButtonStyle">@style/fab_style</item>
         <item name="android:homeAsUpIndicator">@drawable/back</item>
