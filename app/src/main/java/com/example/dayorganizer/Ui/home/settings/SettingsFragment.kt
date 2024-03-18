@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.dayorganizer.R
 import com.example.dayorganizer.Ui.model.Constants
 import com.example.dayorganizer.databinding.FragmentSettingsBinding
@@ -25,6 +26,13 @@ class SettingsFragment : Fragment() {
         languageArrayAdapter =
             ArrayAdapter(requireContext(), R.layout.drop_down_item, languages)
         binding.autoCompleteTVLanguages.setAdapter(languageArrayAdapter)
+
+        // mode
+/*        val modes = resources.getStringArray(R.array.mode_array)
+        val modeArrayAdapter =
+            ArrayAdapter(requireContext(), R.layout.drop_down_item, modes)
+        binding.autoCompleteTVModes.setAdapter(modeArrayAdapter)*/
+
     }
 
     override fun onCreateView(
@@ -38,6 +46,7 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         changeLanguage()
+      //  changeNightMode()
     }
 
     private fun changeLanguage() {
@@ -61,6 +70,18 @@ class SettingsFragment : Fragment() {
             requireContext().resources.displayMetrics,
         )
         requireActivity().recreate()
+    }
+    private fun changeNightMode() {
+        binding.autoCompleteTVModes.setOnItemClickListener { parent, _, position, _ ->
+            val currentMode = parent.getItemAtPosition(position).toString()
+            if ("Light" == currentMode || "نهاري" == currentMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                Constants.isDark = false
+            } else if ("Dark" == currentMode || "ليلي" == currentMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                Constants.isDark = true
+            }
+        }
     }
 
 }
