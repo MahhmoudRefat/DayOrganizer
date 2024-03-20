@@ -28,10 +28,10 @@ class SettingsFragment : Fragment() {
         binding.autoCompleteTVLanguages.setAdapter(languageArrayAdapter)
 
         // mode
-/*        val modes = resources.getStringArray(R.array.mode_array)
+        val modes = resources.getStringArray(R.array.mode_array)
         val modeArrayAdapter =
             ArrayAdapter(requireContext(), R.layout.drop_down_item, modes)
-        binding.autoCompleteTVModes.setAdapter(modeArrayAdapter)*/
+        binding.autoCompleteTVModes.setAdapter(modeArrayAdapter)
 
     }
 
@@ -47,7 +47,7 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         changeLanguage()
-      //  changeNightMode()
+        changeNightMode()
     }
 
     private fun changeLanguage() {

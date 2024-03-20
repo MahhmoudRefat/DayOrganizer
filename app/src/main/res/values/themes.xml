@@ -40,43 +40,43 @@
         <item name="android:colorControlNormal">@color/white</item>
     </style>
 
-    <style name="bottom_nav_style">
+    <!-- bottom nav in maaterial 2 . -->
+    <style name="bottom_nav_style" >
+        <!-- Customize your light theme here. -->
         <item name="android:backgroundTint">@color/white</item>
     </style>
 
-    <style name="task_item_style">
-        <item name="android:backgroundTint">@color/white</item>
-    </style>
+
+   <style name="task_item_style">
+       <item name="android:backgroundTint">@color/white</item>
+   </style>
 
 
-    <style name="background_color">
-        <item name="android:background">@color/lime</item>
-    </style>
-<!--
-    <style name="CustomTextAppearance" parent="TextAppearance.MaterialCalendarWidget.Date">
-        <item name="android:textColor">@color/black</item>
-    </style>-->
-
-    <style name="fab_rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-        <item name="background">@drawable/button_bg</item>
-    </style>
-
-    <style name="bottom_sheet_bg">
-        <item name="background">@color/white</item>
-    </style>
-
-    <style name="BottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/Modal</item>
-    </style>
-
-    <style name="Modal" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/bottom_sheet_bg</item>
-    </style>
+   <style name="background_color">
+       <item name="android:background">@color/lime</item>
+   </style>
 
 
-    <style name="fab_style" parent="Widget.Design.FloatingActionButton">
-        <item name="shapeAppearanceOverlay">@style/fab_rounded</item>
-    </style>
+   <style name="fab_rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+       <item name="cornerFamily">rounded</item>
+       <item name="cornerSize">50%</item>
+       <item name="background">@drawable/button_bg</item>
+   </style>
+
+   <style name="bottom_sheet_bg">
+       <item name="background">@color/white</item>
+   </style>
+
+   <style name="BottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
+       <item name="bottomSheetStyle">@style/Modal</item>
+   </style>
+
+   <style name="Modal" parent="Widget.Design.BottomSheet.Modal">
+       <item name="android:background">@drawable/bottom_sheet_bg</item>
+   </style>
+
+
+   <style name="fab_style" parent="Widget.Design.FloatingActionButton">
+       <item name="shapeAppearanceOverlay">@style/fab_rounded</item>
+   </style>
 </resources>

@@ -43,9 +43,9 @@ class EditTask : AppCompatActivity() {
         return super.onCreateView(name, context, attrs)
     }
     private fun initView() {
-      /*  supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)*/
+        supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
     override fun onSupportNavigateUp(): Boolean {

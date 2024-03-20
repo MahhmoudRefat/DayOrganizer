@@ -41,7 +41,7 @@
         <item name="android:colorControlNormal">@color/white</item>
     </style>
 
-    <style name="bottom_nav_style">
+    <style name="bottom_nav_style" >
         <item name="android:backgroundTint">@color/white</item>
     </style>
 
@@ -53,10 +53,7 @@
     <style name="background_color">
         <item name="android:background">@color/lime</item>
     </style>
-    <!--
-        <style name="CustomTextAppearance" parent="TextAppearance.MaterialCalendarWidget.Date">
-            <item name="android:textColor">@color/black</item>
-        </style>-->
+
 
     <style name="fab_rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
