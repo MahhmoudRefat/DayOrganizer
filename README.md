@@ -14,3 +14,6 @@ Features
     SQLite: The local database used to store and retrieve task and event data.
     Android Jetpack components: Used for efficient and modern Android development, including ViewModel, LiveData, and Room Persistence Library.
     Material Design: The app follows the Material Design guidelines for a visually appealing and user-friendly interface.
+
+    
+![app Image](https://repository-images.githubusercontent.com/749822915/7eed484b-36d6-4eec-8ec1-d5809a2bf867)
