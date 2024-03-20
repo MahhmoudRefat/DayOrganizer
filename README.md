@@ -1,4 +1,4 @@
-#Day Organizer App
+<h1 align="center">Day Organizer App App</h1>
 
 ##The Day Organizer App is an Android application that helps users organize and manage their daily tasks, events, and appointments efficiently.
 Features
