@@ -7,7 +7,7 @@ Features
     ● Create, edit, and delete tasks, events, and appointments.
     ● View tasks and events in a daily, weekly, or monthly calendar view.
 
-<h2 > Technologies Used </h2>
+<h3 > Technologies Used </h3>
 
     Android Studio: The integrated development environment (IDE) for Android app development.
     Kotlin: The programming language used for developing the app.
